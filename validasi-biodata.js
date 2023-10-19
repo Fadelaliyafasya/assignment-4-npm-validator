@@ -7,29 +7,41 @@ const rl = readline.createInterface({
 });
 
 function inputan() {
-  rl.question("Masukan namamu: ", (nama) => {
+  function prosesNama() {
+    rl.question("Masukan namamu: ", (nama) => {
+      prosesNomor(nama);
+    });
+  }
+
+  function prosesNomor(nama) {
     rl.question("Masukan nomormu: ", (nomor) => {
-      if (validator.isMobilePhone(nomor, "any")) {
-        rl.question("Masukan emailmu: ", (email) => {
-          if (validator.isEmail(email)) {
-            console.log(
-              `Nama kamu adalah ${nama}, nomor handphonemu adalah ${nomor}, dan emailmu ${email}, terima kasih!!!`
-            );
-            rl.close();
-          } else {
-            console.log(
-              "Email yang anda masukan invalid, coba masukan kembali!!..."
-            );
-            inputan();
-          }
-        });
+      if (validator.isMobilePhone(nomor, "id-ID")) {
+        prosesEmail(nama, nomor);
       } else {
         console.log(
           "Nomor yang anda masukan invalid, silahkan coba masukan kembali!!..."
         );
-        inputan();
+        prosesNomor(nama);
       }
     });
-  });
+  }
+
+  function prosesEmail(nama, nomor) {
+    rl.question("Masukan emailmu: ", (email) => {
+      if (validator.isEmail(email)) {
+        console.log(
+          `Nama kamu adalah ${nama}, nomor handphonemu adalah ${nomor}, dan emailmu ${email}, terima kasih!!!`
+        );
+        rl.close();
+      } else {
+        console.log(
+          "Email yang anda masukan invalid, coba masukan kembali!!..."
+        );
+        prosesEmail(nama, nomor);
+      }
+    });
+  }
+
+  prosesNama();
 }
 inputan();
