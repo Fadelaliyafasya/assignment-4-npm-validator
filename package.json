@@ -4,12 +4,13 @@
   "description": "validasi inputan",
   "main": "validasi-biodata.js",
   "scripts": {
-    "start": "validasi-biodata.js",
+    "start": "nodemon validasi-biodata.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fadel Muhamad Aliyafasya",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "validator": "^13.11.0"
   }
 }
