@@ -1,0 +1,15 @@
+{
+  "name": "validasi-biodata",
+  "version": "1.0.0",
+  "description": "validasi inputan",
+  "main": "validasi-biodata.js",
+  "scripts": {
+    "start": "validasi-biodata.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fadel Muhamad Aliyafasya",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
